@@ -1,0 +1,45 @@
+version: "3"
+
+silent: true
+
+vars:
+  DOCKER_REPO: ghcr.io
+  DOCKER_OWNER: ilyes512
+  DOCKER_IMAGE_NAME: docker
+  HADOLINT_TAG_VERSION: v2.10.0
+
+includes:
+  act:
+    taskfile: ./act
+    dir: ./act
+
+tasks:
+
+  build:
+    desc: Build the vscode-golang image
+    cmds:
+      - docker build
+        --tag {{.DOCKER_REPO}}/{{.DOCKER_OWNER}}/{{.DOCKER_IMAGE_NAME}}:latest
+        .
+
+  lint:
+    desc: Apply a Dockerfile linter (https://github.com/hadolint/hadolint)
+    cmds:
+      - docker run
+        --interactive
+        --rm
+        --volume $(pwd)/.hadolint.yml:/.hadolint.yml
+        hadolint/hadolint:{{.HADOLINT_TAG_VERSION}}
+        hadolint
+        -
+        < Dockerfile
+
+  shell:
+    desc: Interactive shell
+    interactive: true
+    cmds:
+      - docker run
+        --interactive
+        --tty
+        --rm
+        {{.DOCKER_REPO}}/{{.DOCKER_OWNER}}/{{.DOCKER_IMAGE_NAME}}:latest
