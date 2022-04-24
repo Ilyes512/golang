@@ -17,12 +17,13 @@ This project uses [Task](https://taskfile.dev) (an task runner / build tool). If
 Available tasks for this project:
 
 ```
-* act:master:   Run Act with push event on master branch
-* act:pr:       Run Act with pull_request event
-* act:tag:      Run Act with tag (push) event
-* build:        Build the vscode-golang image
-* lint:         Apply a Dockerfile linter (https://github.com/hadolint/hadolint)
-* shell:        Interactive shell
+* act:master:                   Run Act with push event on master branch
+* act:pr:                       Run Act with pull_request event
+* act:tag:                      Run Act with tag (push) event
+* build:                        Build the vscode-golang image
+* lint:                         Apply a Dockerfile linter (https://github.com/hadolint/hadolint)
+* scripts:check-versions:       Check Task version
+* shell:                        Interactive shell
 ```
 
 ### Act tasks

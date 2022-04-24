@@ -12,6 +12,7 @@ includes:
   act:
     taskfile: ./act
     dir: ./act
+  scripts: ./scripts
 
 tasks:
 

@@ -1,0 +1,28 @@
+version: "3"
+
+tasks:
+  run-script:
+    preconditions:
+      - sh: test "{{.RUN_SCRIPT}}" != ""
+        msg: RUN_SCRIPT was not given!
+    cmds:
+      - cmd: docker run
+            --interactive
+            --tty
+            --rm
+            --workdir /workdir
+            --volume $(pwd):/workdir
+            {{.DOCKER_REPO}}/{{.DOCKER_OWNER}}/utils:latest
+            /bin/bash -c /workdir/scripts/{{.RUN_SCRIPT}}
+        ignore_error: true
+
+  check-versions:
+    desc: Check Task version
+    output: group
+    deps:
+      - task: run-script
+        vars:
+          RUN_SCRIPT: check_task.sh
+      - task: run-script
+        vars:
+          RUN_SCRIPT: check_golangci-lint.sh
