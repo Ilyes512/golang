@@ -9,6 +9,8 @@ ARG TASK_SHA256=fafc8621d1b481bcbb1fe2b2ce47940e8d2144c4c4566f0449a3722c2dbb1398
 ARG GOLANGCI_LINT_VERSION=v1.45.2
 ARG GOLANGCI_LINT_SHA256=15720f9c4c6f9324af695f081dc189adc7751b255759e78d7b2df1d7e9192533
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN apt-get update \
     && apt-get install --assume-yes --no-install-recommends \
         openssh-client \
