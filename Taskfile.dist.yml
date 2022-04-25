@@ -5,7 +5,7 @@ silent: true
 vars:
   DOCKER_REPO: ghcr.io
   DOCKER_OWNER: ilyes512
-  DOCKER_IMAGE_NAME: docker
+  DOCKER_IMAGE_NAME: golang
   HADOLINT_TAG_VERSION: v2.10.0
 
 includes:
