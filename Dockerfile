@@ -32,6 +32,7 @@ RUN apt-get update \
     && dpkg -i /tmp/golangci_lint_linux_amd64.deb \
     && apt-get autoremove --assume-yes \
     && apt-get clean --assume-yes \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /tmp/*
 
 CMD ["/bin/bash"]
