@@ -16,6 +16,7 @@ RUN apt-get update \
         openssh-client \
         sudo \
         neovim \
+        netcat \
         # VSCode Live Share Extension dependencies
         libicu67 \
         libkrb5-3 \
