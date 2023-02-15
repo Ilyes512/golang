@@ -1,5 +1,5 @@
 # Latest version of Golang image: https://hub.docker.com/_/golang?tab=tags
-FROM golang:1.18.4-bullseye
+FROM golang:1.20.1-bullseye
 
 # Latest Task version: https://api.github.com/repos/go-task/task/releases/latest
 ARG TASK_VERSION=v3.12.0
